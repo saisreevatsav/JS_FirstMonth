@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Motor Machines</title>
+    <link rel="icon" type="image/x-icon" href="./car_icon.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark blur-background">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#Home">Motor Machines</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#Home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#features">Models</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" role="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#customBuildCanvas" aria-controls="customBuildCanvas">
+                            Custom Build
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" role="button" data-bs-toggle="modal"
+                            data-bs-target="#loginModalToggle">
+                            Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Custom Build -->
+    <!-- <section id="custom-build"> -->
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="customBuildCanvas"
+            aria-labelledby="customBuildCanvasLabel" data-bs-backdrop="static">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="customBuildCanvasLabel">Custom Build</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div id="spinnerOverlay">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+
+                <div id="formContainer" class="fade-custom" style="display: none;">
+                    <form class="needs-validation">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="custom-name" placeholder="Enter your Name"
+                                required>
+                            <label for="custom-name" class="form-label text-black">Name</label>
+                            <div class="valid-feedback">Looks Good</div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="custom-email" placeholder="Enter your Email"
+                                required>
+                            <label for="custom-email" class="form-label text-black">Email address</label>
+                            <div class="invalid-feedback">Enter proper email ID</div>
+                        </div>
+
+                        <label class="form-check-label fw-bold">Vehicle Type</label>
+                        <div class="form-check">
+                            <input class="form-check-input-classic" type="radio" name="radioDefault" id="customRadio1">
+                            <label class="form-check-label" for="customRadio1">Classic Car</label><br>
+
+                            <input class="form-check-input-muscle" type="radio" name="radioDefault" id="customRadio2">
+                            <label class="form-check-label" for="customRadio2">Muscle Car</label><br>
+
+                            <input class="form-check-input-truck" type="radio" name="radioDefault" id="customRadio3">
+                            <label class="form-check-label" for="customRadio3">Truck</label><br>
+
+                            <input class="form-check-input-race" type="radio" name="radioDefault" id="customRadio4">
+                            <label class="form-check-label" for="customRadio4">Race Car</label>
+                        </div>
+
+                        <label class="form-check-label fw-bold">Body Kit</label>
+                        <div class="form-check">
+                            <input class="form-check-input-spoliers" type="checkbox" name="radioDefault"
+                                id="customCheck1">
+                            <label class="form-check-label" for="customCheck1">Spoliers</label><br>
+
+                            <input class="form-check-input-side" type="checkbox" name="radioDefault" id="customCheck2">
+                            <label class="form-check-label" for="customCheck2">Side Skirts</label><br>
+
+                            <input class="form-check-input-bumpers" type="checkbox" name="radioDefault"
+                                id="customCheck3">
+                            <label class="form-check-label" for="customCheck3">Bumpers</label><br>
+
+                            <input class="form-check-input-all" type="checkbox" name="radioDefault" id="customCheck4">
+                            <label class="form-check-label" for="customCheck4">All of the Above</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleDataList" class="form-label fw-bold">Seating Materials</label>
+                            <input class="form-control" list="datalistOptions" id="exampleDataList"
+                                placeholder="Seating Materials">
+                            <datalist id="datalistOptions">
+                                <option value="leather">
+                                <option value="Cloth">
+                                <option value="customized wool">
+                            </datalist>
+                        </div>
+
+                        <label class="form-check-label fw-bold">Performance</label>
+                        <div class="form-check">
+                            <input class="form-check-input1" type="checkbox" name="radioDefault" id="custom1">
+                            <label class="form-check-label" for="custom1">Turbochargers</label><br>
+
+                            <input class="form-check-input2" type="checkbox" name="radioDefault" id="custom2">
+                            <label class="form-check-label" for="custom2">Supercharges</label><br>
+
+                            <input class="form-check-input3" type="checkbox" name="radioDefault" id="custom3">
+                            <label class="form-check-label" for="custom3">Engine Tuning</label><br>
+
+                            <input class="form-check-input4" type="checkbox" name="radioDefault" id="custom4">
+                            <label class="form-check-label" for="custom4">All of the Above</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-light w-100"
+                            onclick="offCanvasRegister">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <!-- </section> -->
+
+    <!-- Login section -->
+    <!-- Login Modal (Modal 1) -->
+    <section id="login">
+        <div class="modal fade" id="loginModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Login</h1>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="loginEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="loginPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-outline-light w-100" onclick="login">Login</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="mb-0">Don't have an account?</p>
+                        <button class="btn btn-outline-light" data-bs-target="#signUpModalToggle"
+                            data-bs-toggle="modal">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signup Modal (Modal 2) -->
+        <div class="modal fade" id="signUpModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Sign Up</h1>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="signupName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="signupName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="signupEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="signupEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="signupPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="signupPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-outline-light w-100" onclick="signUp">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- Home Section -->
+    <section class="text-white text-center d-flex align-items-center" id="Home">
+        <div class="container-fluid">
+            <h1 class="display-4 fw-bold">Drive into the Future</h1>
+            <p class="lead fw-bold">Explore Luxury. Power. Performance.</p>
+            <p class="lead fw-bold fs-6 mb-5">Drive like there is no Tomorrow.</p>
+            <p class="lead mb-5 mt-5">Step into a new era of automotive excellence where the road ahead is redefined by
+                cutting-edge innovation and unparalleled sophistication.
+                Our vehicles seamlessly blend luxury with breathtaking power and exceptional performance, meticulously
+                crafted to deliver an experience that transcends the ordinary.</p>
+            <br>
+            <p class="lead mb-5">With razor-sharp handling, instantaneous responsiveness, and heart-pounding
+                acceleration, you're empowered to experience driving at its most visceral,
+                embracing every curve and every acceleration with unbridled passion. This isn't just about getting from
+                one point to another; it's about driving like there's no tomorrow,
+                leaving an unforgettable impression with every mile and unlocking a future where the possibilities are
+                limitless.</p>
+            <br>
+            <!-- Carousel -->
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner mt-5 mb-5">
+                    <div class="carousel-item active">
+                        <img src="./images_audio/ferrari_logo.png" class="d-block mx-auto brand-logo"
+                            alt="Ferrari Logo">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images_audio/benz_logo.png" class="d-block mx-auto brand-logo" alt="Benz Logo">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images_audio/audi_logo.png" class="d-block mx-auto brand-logo" alt="Audi Logo">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images_audio/shelby_mustang_logo.jpeg" class="d-block mx-auto brand-logo"
+                            alt="shelby_mustang logo">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images_audio/mustang_logo.jpeg" class="d-block mx-auto brand-logo"
+                            alt="mustang Logo">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <a href="#features" class="btn btn-warning btn-lg mt-5 mb-5" id="explore">Explore Models</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 text-center light-background">
+        <div id="carouselExampleDark" class="carousel carousel-light slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="./dmitry-tomashek-I4U_gB7dbdQ-unsplash.jpg" class="d-block w-100" alt="Drift It">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Drift It</h3>
+                        <p>Embrace the slide, control the chaos, and conquer the turn.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="./images_audio/bg-img.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Ready to Roar</h3>
+                        <p>Unleash your inner power and dominate what's next.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images_audio/Lock_img.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Start the Adventure</h3>
+                        <p>Embark on the journey, embrace the unknown, and write your own epic story.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5 text-light bg-grey">
+        <div class="container">
+            <h2 class="text-center mb-5">Gallery</h2>
+            <div class="row justify-content-center g-4">
+
+                <!-- Card 1 -->
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card bg-dark text-white shadow" style="width: 18rem;">
+                        <img src="./images_audio/audi.jpg" class="card-img-top" alt="Build like Audi">
+                        <div class="card-body bg-opacity">
+                            <h5 class="card-title">Build like Audi</h5>
+                            <p class="card-text">Focus on meticulous craftsmanship and a relentless pursuit of
+                                perfection. This means paying attention to every detail,
+                                from the seamless integration of technology to the premium quality of materials</p>
+                            <button id="playButton" class="btn btn-outline-light" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" data-bs-title="Audi Audio">Sense It</button>
+                            <audio id="myAudio"
+                                src="./images_audio/audi-s5-quattro-coupe-sound-effect-362332.mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card bg-dark text-white shadow" style="width: 18rem;">
+                        <img src="./images_audio/benz.jpg" class="card-img-top" alt="Live like Benz">
+                        <div class="card-body bg-opacity">
+                            <h5 class="card-title">Live like Benz</h5>
+                            <p class="card-text">Embrace the luxury, precision, and innovation that define
+                                Mercedes-Benz. This isn't just about extravagance;
+                                it's about a commitment to excellence in every detail.
+                            </p>
+                            <button id="benzButton" class="btn btn-outline-light" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" data-bs-title="Benz Audio">Sense It</button>
+                            <audio id="benzAudio" src="./images_audio/s63-amg-v8-engine-revs-41131.mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card bg-dark text-white shadow" style="width: 18rem;">
+                        <img src="./images_audio/mustang.jpg" class="card-img-top" alt="Roar like Mustang">
+                        <div class="card-body bg-opacity">
+                            <h5 class="card-title">Roar like Mustang</h5>
+                            <p class="card-text">You feel the raw power surge through you, a wild and untamed spirit
+                                echoing the mustang's roar. This isn't just about strength;
+                                it's about the freedom to run, the unbridled energy that propels you forward. </p>
+
+                            <button id="mustangButton" class="btn btn-outline-light" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" data-bs-title="Mustang Audio">Sense It</button>
+                            <audio id="mustangAudio" src="./images_audio/mustang-7-87449.mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container text-light light-background">
+            <h2 class="text-center mb-4">Book a Drive</h2>
+            <form id="myForm" class="w-75 mx-auto" novalidate>
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" id="name" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" id="email" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Preferred Car Model</label>
+                    <input type="text" id="carModel" class="form-control" required />
+                </div>
+                <button type="submit" id="submit" class="btn btn-outline-light" disabled>Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- QnA Accordion -->
+    <section id="QnA" class="qna-section py-5 text-center">
+        <div class="container">
+            <h2 class="text-white mb-4">Frequently Asked Questions</h2>
+            <div class="accordion mx-auto shadow-lg" id="accordionExample" style="max-width: 800px;">
+
+                <!-- Q1 -->
+                <div class="accordion-item bg-dark text-light border-0 rounded-3 mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button bg-dark text-light" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What models can I customize?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            You can customize Classic Cars, Muscle Cars, Trucks, and Race Cars — complete with body
+                            kits, performance tuning, and luxury seating.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="accordion-item bg-dark text-light border-0 rounded-3 mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed bg-dark text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo">
+                            Can I book a test drive for my custom build?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Yes, use the "Book a Drive" form on the homepage. Once submitted, we’ll schedule a test
+                            drive for your preferred car model.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="accordion-item bg-dark text-light border-0 rounded-3 mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed bg-dark text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                            aria-controls="collapseThree">
+                            Do you offer performance upgrades?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Absolutely! We offer turbochargers, superchargers, engine tuning, and more to enhance your
+                            car’s performance.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="accordion-item bg-dark text-light border-0 rounded-3 mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed bg-dark text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                            aria-controls="collapseFour">
+                            How long does it take to build a custom car?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            The build time depends on the complexity of your customization. On average, it takes 4 to 8
+                            weeks. You’ll receive regular updates throughout the process. </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="accordion-item bg-dark text-light border-0 rounded-3 mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed bg-dark text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+                            aria-controls="collapseFive">
+                            Can I preview my custom build before it's finalized?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Yes! After submitting your preferences, our design team will share a 3D preview of your
+                            custom build for approval.
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-grey text-white text-center py-3">
+        <p class="mb-0">&copy; 2025 Motor Machines. Built for Performance.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

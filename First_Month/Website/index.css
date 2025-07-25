@@ -1,0 +1,181 @@
+.google{
+  display: flex;
+  align-items: center;
+  padding-top:3px;
+}
+
+
+
+#home {
+  min-height: 100vh;
+  display: flex;
+  text-align: center;
+}
+#carouselExampleAutoplaying{
+.carousel-inner {
+  height: 200px;
+}
+
+.carousel-item img {
+  height: 200px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+}
+
+#explore{
+  font-weight: 500;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .carousel-item > img {
+    height: 300px;
+  }
+}
+
+/* custom build animations */
+.fade-custom {
+  transition: opacity 0.5s ease-in-out;
+}
+#spinnerOverlay{
+  z-index: 10; 
+  background-color: rgba(0,0,0);
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* QnA Accordian Styling */
+.qna-section {
+  min-height: 100vh;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #ffc107; 
+  background-color: rgba(255, 255, 255, 0.05);
+
+}
+
+/* submit in contact */
+#submit {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  background-color: blue; 
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#submit:hover,
+#submit:focus {
+  background-color: #6c757d;
+  transform: scale(1.02);
+}
+#submit:disabled {
+  background-color: #6c757d; /* Muted gray */
+  color: #e0e0e0;
+  cursor: not-allowed;
+  opacity: 1; /* keep it solid, not faded */
+}
+
+
+
+/* Body styling */
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+/* navbar styling */
+.navbar-brand {
+  text-decoration: none;
+  position: sticky;
+}
+.blur-background {
+  background: transparent;
+  backdrop-filter: blur(50px);
+  z-index: 100; 
+}
+
+
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("dmitry-tomashek-I4U_gB7dbdQ-unsplash.jpg");
+  background-size: cover;
+}
+.modal-content {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("dmitry-tomashek-I4U_gB7dbdQ-unsplash.jpg");
+  background-size: cover;
+}
+.offcanvas {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("dmitry-tomashek-I4U_gB7dbdQ-unsplash.jpg");
+  background-size: cover;
+}
+.modal-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("dmitry-tomashek-I4U_gB7dbdQ-unsplash.jpg");
+  background-size: cover;
+}
+
+#Home {
+  scroll-margin-top: 80px;
+}
+
+img {
+  background-size: cover;
+}
+
+.navbar {
+  transition: background-color 0.3s ease; /* Optional: Add a smooth transition */
+  color: light;  
+}
+
+.navbar-light {
+  background-color: light; 
+  color: white; 
+}
+
+
+/* CSS Animations */
+/* Car Gallery card animations */
+/* Card Hover Animation */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+}
+
+/* Animate card body background when hovered */
+.card:hover .card-body {
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.4s ease;
+}
+
+/* Active Sense It button */
+.sensing {
+  background-color: #fff !important;
+  color: #000 !important;
+  font-weight: bold;
+  border-color: #fff !important;
+}
