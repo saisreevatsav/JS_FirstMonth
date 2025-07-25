@@ -1,0 +1,18 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+:root{
+    --bs-danger:red;
+    --bs-pink:pink;
+    --bs-alert:yellow;
+}
+$primary: white;
+$spacer:1rem;
+$container-max-width:(
+    sm:500px,
+    md:700px,
+);
+$table:(
+    text-color:pink
+);
+$car:(
+    color:white
+);
